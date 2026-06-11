@@ -1,8 +1,8 @@
-function Footer() {
+function Footer({ text, subText }) {
   return (
     <footer className="footer">
-      <p>Made with React</p>
-      <span>Keep building. Keep improving.</span>
+      <p>{text}</p>
+      <span>{subText}</span>
     </footer>
   );
 }
