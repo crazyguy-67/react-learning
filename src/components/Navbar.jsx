@@ -1,6 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function Navbar() {
+  const navLinkClass = ({ isActive }) =>
+    isActive
+      ? "border-b-2 border-white pb-1 text-sm font-bold text-white"
+      : "border-b-2 border-transparent pb-1 text-sm font-medium text-neutral-300 transition hover:text-white";
+
   return (
     <nav className="flex items-center justify-between bg-neutral-950 px-6 py-5 text-white md:px-16">
       <Link to="/" className="text-2xl font-extrabold tracking-tight">
@@ -8,33 +13,21 @@ function Navbar() {
       </Link>
 
       <div className="hidden items-center gap-7 md:flex">
-        <Link
-          to="/"
-          className="text-sm font-medium text-neutral-300 transition hover:text-white"
-        >
+        <NavLink to="/" className={navLinkClass}>
           Home
-        </Link>
+        </NavLink>
 
-        <Link
-          to="/lessons"
-          className="text-sm font-medium text-neutral-300 transition hover:text-white"
-        >
+        <NavLink to="/lessons" className={navLinkClass}>
           Lessons
-        </Link>
+        </NavLink>
 
-        <Link
-          to="/resources"
-          className="text-sm font-medium text-neutral-300 transition hover:text-white"
-        >
+        <NavLink to="/resources" className={navLinkClass}>
           Resources
-        </Link>
+        </NavLink>
 
-        <Link
-          to="/about"
-          className="text-sm font-medium text-neutral-300 transition hover:text-white"
-        >
+        <NavLink to="/about" className={navLinkClass}>
           About
-        </Link>
+        </NavLink>
       </div>
 
       <Link
