@@ -4,6 +4,7 @@ import Features from "./components/Features";
 import Footer from "./components/Footer";
 import LearningPath from "./components/LearningPath";
 import JoinForm from "./components/JoinForm";
+import Resources from "./components/Resources";
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
         <LearningPath />
 
         <JoinForm />
+
+        <Resources />
       </main>
 
       <Footer text="Made with React" subText="Keep building. Keep improving." />
