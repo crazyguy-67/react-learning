@@ -1,30 +1,25 @@
+import { Routes, Route } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Features from "./components/Features";
 import Footer from "./components/Footer";
-import LearningPath from "./components/LearningPath";
-import JoinForm from "./components/JoinForm";
-import Resources from "./components/Resources";
+
+import Home from "./pages/Home";
+import Lessons from "./pages/Lessons";
+import ResourcesPage from "./pages/ResourcesPage";
+import About from "./pages/About";
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-neutral-100 text-neutral-950">
+    <div className="flex min-h-screen flex-col bg-neutral-100 text-neutral-950">
       <Navbar />
 
       <main className="flex-1">
-        <Hero
-          title="Learn React by Building"
-          description="This is my first React component-based page."
-          buttonText="Start Learning"
-        />
-
-        <Features />
-
-        <LearningPath />
-
-        <JoinForm />
-
-        <Resources />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/lessons" element={<Lessons />} />
+          <Route path="/resources" element={<ResourcesPage />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
       </main>
 
       <Footer text="Made with React" subText="Keep building. Keep improving." />
