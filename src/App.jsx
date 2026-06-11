@@ -5,16 +5,18 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="app">
+    <div className="min-h-screen flex flex-col bg-neutral-100 text-neutral-950">
       <Navbar />
 
-      <Hero
-        title="Learn React by Building"
-        description="This is my first React component-based page."
-        buttonText="Start Learning"
-      />
+      <main className="flex-1">
+        <Hero
+          title="Learn React by Building"
+          description="This is my first React component-based page."
+          buttonText="Start Learning"
+        />
 
-      <Features />
+        <Features />
+      </main>
 
       <Footer text="Made with React" subText="Keep building. Keep improving." />
     </div>

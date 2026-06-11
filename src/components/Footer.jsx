@@ -1,8 +1,8 @@
 function Footer({ text, subText }) {
   return (
-    <footer className="footer">
-      <p>{text}</p>
-      <span>{subText}</span>
+    <footer className="bg-neutral-950 px-5 py-7 text-center text-white">
+      <p className="font-bold">{text}</p>
+      <span className="mt-1 block text-sm text-neutral-400">{subText}</span>
     </footer>
   );
 }
