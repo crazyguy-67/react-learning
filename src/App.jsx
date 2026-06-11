@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Features from "./components/Features";
 import Footer from "./components/Footer";
+import LearningPath from "./components/LearningPath";
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
         />
 
         <Features />
+
+        <LearningPath />
       </main>
 
       <Footer text="Made with React" subText="Keep building. Keep improving." />
