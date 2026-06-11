@@ -3,6 +3,7 @@ import Hero from "./components/Hero";
 import Features from "./components/Features";
 import Footer from "./components/Footer";
 import LearningPath from "./components/LearningPath";
+import JoinForm from "./components/JoinForm";
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
         <Features />
 
         <LearningPath />
+
+        <JoinForm />
       </main>
 
       <Footer text="Made with React" subText="Keep building. Keep improving." />
