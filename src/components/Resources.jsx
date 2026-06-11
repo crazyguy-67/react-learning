@@ -1,31 +1,11 @@
-import { useState, useEffect } from "react";
+import useFetch from "../hooks/useFetch";
 
-const Resources = () => {
-  const [resources, setResources] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    async function fetchResources() {
-      try {
-        const res = await fetch(
-          "https://jsonplaceholder.typicode.com/posts?_limit=4",
-        );
-
-        if (!res.ok) {
-          throw new Error("Failed to fetch resources!");
-        }
-        const data = await res.json();
-        setResources(data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchResources();
-  }, []);
+function Resources() {
+  const {
+    data: resources,
+    loading,
+    error,
+  } = useFetch("https://jsonplaceholder.typicode.com/posts?_limit=3");
 
   return (
     <section className="bg-neutral-100 px-5 py-20">
@@ -35,23 +15,23 @@ const Resources = () => {
         </h2>
 
         <p className="mx-auto mt-4 max-w-2xl text-center text-neutral-600">
-          These resources are loaded from an external API using useEffect.
+          These resources are loaded from an external API using a custom hook.
         </p>
 
         {loading && (
           <p className="mt-10 text-center font-semibold text-neutral-600">
-            Loading Resources...
+            Loading resources...
           </p>
         )}
 
         {error && (
-          <p className="mt-10 rounded-xl bg-red-100 px-4 py-3 text-center font-bold text-red-700">
+          <p className="mt-10 rounded-xl bg-red-100 px-4 py-3 text-center font-semibold text-red-700">
             {error}
           </p>
         )}
 
         {!loading && !error && (
-          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid=cols-3">
+          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {resources.map((resource) => (
               <div
                 key={resource.id}
@@ -61,7 +41,7 @@ const Resources = () => {
                   Resource #{resource.id}
                 </span>
 
-                <h3 className="text-xl mt-4 font-extrabold capitalize text-neutral-950">
+                <h3 className="mt-4 text-xl font-extrabold capitalize text-neutral-950">
                   {resource.title}
                 </h3>
 
@@ -75,6 +55,6 @@ const Resources = () => {
       </div>
     </section>
   );
-};
+}
 
 export default Resources;
