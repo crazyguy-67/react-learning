@@ -9,7 +9,7 @@ const Resources = () => {
     async function fetchResources() {
       try {
         const res = await fetch(
-          "https://jsonplaceholder.typicode.com/posts?_limit=3",
+          "https://jsonplaceholder.typicode.com/posts?_limit=4",
         );
 
         if (!res.ok) {
