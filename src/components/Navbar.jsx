@@ -1,6 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
+import { useTheme } from "../context/ThemeContext";
 
 function Navbar() {
+  const { theme, toggleTheme } = useTheme();
   const navLinkClass = ({ isActive }) =>
     isActive
       ? "border-b-2 border-white pb-1 text-sm font-bold text-white"
@@ -28,6 +30,15 @@ function Navbar() {
         <NavLink to="/about" className={navLinkClass}>
           About
         </NavLink>
+      </div>
+
+      <div className="flex items-center gap-3">
+        <button
+          onClick={toggleTheme}
+          className="rounded-full border border-white/20 px-4 py-2 text-sm font-bold text-white transition hover:bg-white hover:text-neutral-950"
+        >
+          {theme === "light" ? "Dark" : "Light"}
+        </button>
       </div>
 
       <Link
